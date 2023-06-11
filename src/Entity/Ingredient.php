@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\IngredientRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: IngredientRepository::class)]
@@ -24,6 +25,17 @@ class Ingredient
     #[Assert\LessThan(200)]
     #[Assert\NotNull(message: "can not be null :/")]
     private ?float $prix = null;
+
+
+
+
+    /**
+     * __construct
+     */
+    public function __construct()
+    {
+        $this->createdAt = new DateTimeImmutable();
+    }
 
     #[ORM\Column]
     #[Assert\NotNull(message: "can not be null :/")]
