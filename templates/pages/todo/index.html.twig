@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TodoController!{% endblock %}
+
+{% block body %}
+
+    {% for i in  app.session.flashBag.get('success')  %}
+        <h1 class="alert alert-success"> {{ i }} </h1>
+    {% endfor %}
+
+    {% for i in app.session.flashBag.get('error') %}
+        <h1 class="alert alert-danger"> {{ i }} </h1>
+    {% endfor %}
+
+    {% for cle,content in app.session.get("todo")  %}
+        <h1>{{ cle }} : {{ content  }}</h1>
+    {% endfor %}
+{% endblock %}

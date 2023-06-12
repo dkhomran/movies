@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <h1>
+        hello from {{ firstName }} {{ secondName }}
+    </h1>
+
+    <a href="{{ path('app_random_table', {nb : 6})}}">go</a>
+
+
+{% endblock %}

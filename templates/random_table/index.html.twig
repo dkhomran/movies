@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Random Table{% endblock %}
+
+{% block body %}
+{% for t in table %}
+    <p class="bg-danger text-light p-5 fs-5" >{{ t }}</p>
+
+{% endfor %}
+    <p class="bg-info text-light p-5 fs-5">max number : {{ max(table) }}</p>
+    <p class="bg-success text-light p-5 fs-5">min number : {{ min(table) }}</p>
+    <p class="bg-warning text-light p-5 fs-5">Langeur de table : {{ table | length }}</p>
+{% endblock %}

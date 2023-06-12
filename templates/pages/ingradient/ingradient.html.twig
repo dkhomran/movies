@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ingradient
+{% endblock %}
+
+{% block body %}
+
+
+	{# total items count #}
+
+	<table class="table table-warning">
+		<tr>
+			<th>numero</th>
+			<th>name</th>
+			<th>prix</th>
+			<th>Date</th>
+		</tr>
+
+		{# table body #}
+		{% if ingredients|length > 0  %}
+			{% for article in ingredients %}
+				<tr {% if loop.index is odd %} class="color" {% endif %}>
+					<td>{{ article.id }}</td>
+					<td>{{ article.nom }}</td>
+					<td>{{ article.prix }}</td>
+					<td>{{ article.createdAt|date("m/d/Y") }}</td>
+				</tr>
+			{% endfor %}
+		{% else %}
+			<tr>
+				<td colspan="4">
+					il n'y a pas d'ingradients
+				</td>
+			</tr>
+		{% endif %}
+	</table>
+	{# display navigation #}
+
+	<div class=" text-dark d-flex justify-content-center">
+		{{ knp_pagination_render(ingredients) }}
+	</div>
+
+
+{% endblock %}
